@@ -1,0 +1,13 @@
+{
+    "skillNamespace": "smart_mirror",
+    "skillAppID": "amzn1.ask.skill.642c42d4-e076-4fd2-9fb2-adfd399b4469",
+    "dynamoDBTableName": "smart_mirror-users-dev",
+    "s3": {
+        "bucketName": "smart_mirror-dev",
+        "transKey": "translations.json"
+    },
+    "region": "us-east-1",
+    "roleArn": "YOUR_ROLE_ARN",
+    "awsProfile": "smart_mirror-profile-dev",
+    "trackingToken": "REPLACE WITH ANALYTICS TRACKING TOKEN"
+}
