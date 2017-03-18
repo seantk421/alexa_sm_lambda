@@ -1,6 +1,7 @@
 'use strict';
 const Alexa = require('alexa-sdk');
 const _ = require('lodash');
+const request = require('request');
 //VI-REMOVE:const VoiceInsights = require('voice-insights-sdk');
 
 const Translations = require('./translations');
@@ -8,6 +9,7 @@ const Config = require('./config/skill.config');
 const FactsHelper = require('./factsHelper');
 const AttributesHelper = require('./attributesHelper');
 const ListUtility = require('./listUtility');
+const requestHelper = require('./requestHelper.js')
 
 module.exports.handler = (event, context, callback) => {
     // used for testing and debugging only; not a real request parameter
@@ -42,11 +44,47 @@ module.exports.handler = (event, context, callback) => {
 var mainHandlers = {
 
     'GetCommute' : function(){
-      var ssmlResponse = this.t('test');
-      AttributesHelper.setRepeat.call(this, ssmlResponse.speechOutput, ssmlResponse.reprompt);
-      this.emit(':ask', ssmlResponse.speechOutput, ssmlResponse.reprompt);
-    },
+      var ssmlResponse = this.t('commute');
+      var failResponse = this.t('fail');
+      var that = this;
 
+      requestHelper.sendMessage('commute',function(success){
+        if(success){
+          //AttributesHelper.clearRepeat.call(this);
+          that.emit(':tell', ssmlResponse.speechOutput, ssmlResponse.reprompt);
+        } else{
+          that.emit(':tell', failResponse.speechOutput, failResponse.reprompt);
+        }
+      })
+    },
+    'GetWeather' : function(){
+      var ssmlResponse = this.t('weather');
+      var failResponse = this.t('fail');
+      var that = this;
+
+      requestHelper.sendMessage('weather',function(success){
+        if(success){
+          //AttributesHelper.clearRepeat.call(this);
+          that.emit(':tell', ssmlResponse.speechOutput, ssmlResponse.reprompt);
+        } else{
+          that.emit(':tell', failResponse.speechOutput, failResponse.reprompt);
+        }
+      })
+    },
+    'GetCalendar' : function(){
+      var ssmlResponse = this.t('calendar');
+      var failResponse = this.t('fail');
+      var that = this;
+
+      requestHelper.sendMessage('calendar',function(success){
+        if(success){
+          //AttributesHelper.clearRepeat.call(this);
+          that.emit(':tell', ssmlResponse.speechOutput, ssmlResponse.reprompt);
+        } else{
+          that.emit(':tell', failResponse.speechOutput, failResponse.reprompt);
+        }
+      })
+    },
     'LaunchRequest': function () {
 
         let ssmlResponse = this.t('welcome', this.t('skill.name')); // example of passing a parameter to a string in translations.json
@@ -56,118 +94,6 @@ var mainHandlers = {
         //VI-REMOVE:VoiceInsights.track('LaunchRequest', null, ssmlResponse.speechOutput, (error, response) => {
             this.emit(':ask', ssmlResponse.speechOutput, ssmlResponse.reprompt);
         //VI-REMOVE:});
-    },
-
-    'GetNewFactIntent': function () {
-
-        //VI-REMOVE:let intent = this.event.request.intent;
-        let facts = this.t('facts');
-        let visited = AttributesHelper.getVisitedFacts.call(this);
-        AttributesHelper.clearRepeat.call(this);
-
-        let isNewSession = this.event.session.new;
-
-        let options = {
-            sourceListSize: facts.length,
-            visitedIndexes: visited
-        };
-
-        try {
-
-            let listUtility = new ListUtility(options);
-            let result = listUtility.getRandomIndex();
-
-            AttributesHelper.setVisitedFacts.call(this, result.newVisitedIndexes);
-
-            let ssmlResponse = FactsHelper.getFactByIndex.call(this, result.index, isNewSession);
-
-            AttributesHelper.setRepeat.call(this, ssmlResponse.speechOutput, ssmlResponse.reprompt);
-
-            if (isNewSession) {
-
-                //VI-REMOVE:VoiceInsights.track(intent.name, null, ssmlResponse.speechOutput, (error, response) => {
-                    this.emit(':tellWithCard', ssmlResponse.speechOutput, ssmlResponse.cardTitle, ssmlResponse.cardContent, ssmlResponse.cardImages);
-                //VI-REMOVE:});
-            }
-            else {
-
-                //VI-REMOVE:VoiceInsights.track(intent.name, null, ssmlResponse.speechOutput, (error, response) => {
-                    this.emit(':askWithCard', ssmlResponse.speechOutput, ssmlResponse.reprompt, ssmlResponse.cardTitle, ssmlResponse.cardContent, ssmlResponse.cardImages);
-                //VI-REMOVE:});
-            }
-        }
-        catch(err) {
-
-            this.emit('Unhandled');
-        }
-    },
-
-    'GetFactByNumberIntent': function () {
-
-        //VI-REMOVE:let intent = this.event.request.intent;
-        let facts = this.t('facts');
-        let isNewSession = this.event.session.new;
-        AttributesHelper.clearRepeat.call(this);
-
-        let value = parseInt(this.event.request.intent.slots.number.value);
-        let visited = AttributesHelper.getVisitedFacts.call(this);
-
-        let options = {
-            sourceListSize: facts.length,
-            visitedIndexes: visited
-        };
-
-            try {
-                let listUtility = new ListUtility(options);
-
-                let result = listUtility.getIndexFromValue(value);
-                AttributesHelper.setVisitedFacts.call(this, result.newVisitedIndexes);
-
-                if (result.index === -1) {
-
-                    let ssmlResponse = FactsHelper.getFactNotFound.call(this, value, isNewSession);
-
-                    AttributesHelper.setRepeat.call(this, ssmlResponse.speechOutput, ssmlResponse.reprompt);
-
-                    if (isNewSession) {
-
-                        //VI-REMOVE:VoiceInsights.track(intent.name, intent.slots, ssmlResponse.speechOutput, (error, response) => {
-                            this.emit(':tell', ssmlResponse.speechOutput);
-                        //VI-REMOVE:});
-                    }
-                    else {
-
-                        //VI-REMOVE:VoiceInsights.track(intent.name, intent.slots, ssmlResponse.speechOutput, (error, response) => {
-                            this.emit(':ask', ssmlResponse.speechOutput, ssmlResponse.reprompt);
-                        //VI-REMOVE:});
-                    }
-
-                }
-                else {
-
-                    let ssmlResponse = FactsHelper.getFactByIndex.call(this, result.index, isNewSession);
-
-                    AttributesHelper.setRepeat.call(this, ssmlResponse.speechOutput, ssmlResponse.reprompt);
-
-
-                    if (isNewSession) {
-
-                        //VI-REMOVE:VoiceInsights.track(intent.name, intent.slots, ssmlResponse.speechOutput, (error, response) => {
-                            this.emit(':tellWithCard', ssmlResponse.speechOutput, ssmlResponse.cardTitle, ssmlResponse.cardContent, ssmlResponse.cardImages);
-                        //VI-REMOVE:});
-                    }
-                    else {
-
-                        //VI-REMOVE:VoiceInsights.track(intent.name, intent.slots, ssmlResponse.speechOutput, (error, response) => {
-                            this.emit(':askWithCard', ssmlResponse.speechOutput, ssmlResponse.reprompt, ssmlResponse.cardTitle, ssmlResponse.cardContent, ssmlResponse.cardImages);
-                        //VI-REMOVE:});
-                    }
-                }
-            }
-            catch(err) {
-
-                this.emit('Unhandled');
-            }
     },
 
     'AMAZON.RepeatIntent': function () {

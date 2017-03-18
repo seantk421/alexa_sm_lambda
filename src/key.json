@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "alexa-hack-sm",
+  "private_key_id": "a5f01a1aad2c68c16ae345bb384b1a7a18f58f0a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC2QRS74Ej+9lnY\n1rUXr083Vye/Oa1SuBVilgvyXkiZ/y35Q352eR9CADtYBsVlOnb0WApvT0KXLK0w\nWnkRvd+IB7cwHk6sjkO7d5mlUokKs5K43gy/dHq/neM9raykQFWMQyk52I28tWvW\n4MiKaDmd3c6zux75Ut3UzKrvkY7wHzzyrLGDblcOpeq1SoO0Nb3kzPHlXpFUlyJ2\nob9hHcFwjMsggL12JkFxwKCRlGDlt7tn4MQD4pNk+jTgTWFuJqYHVSAT+Qgh9e8e\nKNffxZeTCPASJWczAVChO2eplMdrPxr0wc2VksNZFS18kodFPsvHDB+N+z+pb5qm\nGTSAQNQ7AgMBAAECggEAKki9K72kkerL+6AM0drtkRRad2ZFTSzCYWYYjXnMdFYc\n73j2TTxawTBWlFy1zX+b+6K1gQ+tjm9iGxbSgghAZUoM+U/+xtAW7NaZwh59BwuU\nnel+oai/lddm0neJ123Jq0oltXMFp2OcCnWKcXou6+57N33ReNz99JIrknt94z2n\n5oi1Z6DTbQ/4HWtYHVFS/aWP67Xbnzs2XSSUFqSKEUU2/b2QYSHS3mKJ+BROzgSA\nud7dSG420s55/m/93MUqxOvIqM4Cfn/kj02tPe+XAXAeOeirEP/OSW/49mSz5GH+\noppRVZt65Fcw1rhNLJZ/oDEWMK9kezR7vn7e861raQKBgQDYbhT/ZWcEnI6Ijd6f\n3gPjjIKH8pdT0rslqmJzvDFlNkuS4Gp7VpD8LT+JVWfagzV+bCXdfaODZ52traPe\nyA+R+peWRsIiQGJ0XyV+PDl4GjRxJQ9Y2OyxSAaKVEVfyrTvFq5HKVEKERtHRk6H\n2orS7HHadq/15L9M9xdssoanpwKBgQDXk2pSfyv1H1mMUrNV3BA1UDd2kjlrlmLJ\nsWCG57yvGbAmxlUXIL3L0mmulduPUc07i8HIt/1yMnEsUMhzbrskPrxVR0j+BCbh\n83R7kjESX2eej8NJtNTxFf2VWctZzYdo7HSbFSW/85K0dh/VpauRKae3Q3rzHgYr\nuYCrjzlBTQKBgAeZTdltuQE7cfGvcXqRc/eATnDxfoit5G49HjnMCLvx/RNKF9L+\nxhZkjE+JFR1h7/XhXC77o0sQz0NyzkcbJRjOAJaBI33KXuqREKLvAGGMIf06/N/0\ntdK/oaMntEvZtSKT3EiZVcQRt7B38nfon2kqbhDqi+EJSAIuxr7FQd8PAoGBAKg9\n4U2O+HRuSgnMhS9t9qxU9WQxTGTd0i1MpGPEuaoCJ0qroL7TC6zlgxsA04Cvu7dM\nJCmNBly4Z0DJrxb/hUgNOhhn8Nxlyx6uTOsftfJ7yLejxSph2YppuiV0FdL5J0PI\nvlxGDdcXthfm1IN9rz80PjM1k9/nP7OiK3w449tFAoGBAJ71AYn3X6zx6UrEUY2P\n0rIOAet478pDAD6UpeYb0MfCFVMjcABnnn0rDng5lsdmey4IzgixE73MK2BObhbi\nJuL6Mg5CoATdzhtK029k0kTKKiN/ggl+XKZC3yLDOUSJokb7TGthFFw3JrNR6wHu\nY46YtJJlFb0U4nyVqVEgb+rL\n-----END PRIVATE KEY-----\n",
+  "client_email": "alexa-hack-sm@appspot.gserviceaccount.com",
+  "client_id": "101031074558693133118",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/alexa-hack-sm%40appspot.gserviceaccount.com"
+}

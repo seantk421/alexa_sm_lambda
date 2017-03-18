@@ -23,15 +23,17 @@
     "predeploy:prod:s3": "node ./npm-scripts/check-configure.js && node ./npm-scripts/pre-deploy-s3.js --stage=prod",
     "test": "mocha ../test/**/*.js --reporter spec",
     "test:unit": "mocha ../test/unit/*.js --reporter spec",
-    "test:e2e": "mocha ../test/e2e/*.js --reporter spec",    
+    "test:e2e": "mocha ../test/e2e/*.js --reporter spec",
     "configure:rolearn:dev": "node ./npm-scripts/configure-role-arn.js --stage=dev",
     "iam:trust:dev": "node ./npm-scripts/iam-trust.js --stage=dev",
-    "open:amz": "node ./npm-scripts/open-amazon.js"   
+    "open:amz": "node ./npm-scripts/open-amazon.js"
   },
   "dependencies": {
+    "@google-cloud/pubsub": "^0.8.3",
     "alexa-sdk": "^1.0.6",
-    "aws-sdk": "^2.7.19",
-    "lodash": "^4.16.4"
+    "aws-sdk": "^2.28.0",
+    "lodash": "^4.16.4",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "attrs.argv": "^0.2.0-a",

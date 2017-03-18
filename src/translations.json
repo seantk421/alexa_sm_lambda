@@ -23,13 +23,25 @@
         "So, what would you like me to tell you?"
       ],
       "sampleCommands": [
-        "Tell me a new fact.",
-        "Tell me fact number three.",
+        "What does my commute look like?",
+        "Show me the weather",
         "Repeat.",
         "Goodbye."
       ],
       "test":{
         "speechOutput": "This is just a test",
+        "reprompt": "This is just a test"
+      },
+      "commute":{
+        "speechOutput": "Your commute is now visible.",
+        "reprompt": "This is just a test"
+      },
+      "weather":{
+        "speechOutput": "Your weather is now visible.",
+        "reprompt": "This is just a test"
+      },
+      "calendar":{
+        "speechOutput": "Your calendar is now visible.",
         "reprompt": "This is just a test"
       },
       "unhandled": {
