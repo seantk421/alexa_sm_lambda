@@ -1,10 +1,16 @@
 GetCommute what does my commute look like
+GetCommute show my commute
 GetCommute how long will it take me to get to work
 GetCommute what does my commute look like
-GetWeather show me the weather
+GetCommute what my commute looks like
+GetWeather show me the weather for {City} {State}
+GetWeather show the weather for {City} {State}
 GetWeather how does the weather look today
 GetCalendar how does my day look
 GetCalendar show me my calendar
+GetNews show me {News} news
+GetNews show me news related to {News}
+GetStock show me the stock ticker for {Stock}
 AMAZON.StopIntent stop
 AMAZON.StopIntent off
 AMAZON.StopIntent end

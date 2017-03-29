@@ -24,12 +24,16 @@
       ],
       "sampleCommands": [
         "What does my commute look like?",
-        "Show me the weather",
+        "Show me the weather.",
         "Repeat.",
         "Goodbye."
       ],
       "test":{
         "speechOutput": "This is just a test",
+        "reprompt": "This is just a test"
+      },
+      "news":{
+        "speechOutput": "Have a look at the mirror for news related to ",
         "reprompt": "This is just a test"
       },
       "commute":{
@@ -38,6 +42,10 @@
       },
       "weather":{
         "speechOutput": "Your weather is now visible.",
+        "reprompt": "This is just a test"
+      },
+      "stock":{
+        "speechOutput": "Have a look at the mirror for stocks related to ",
         "reprompt": "This is just a test"
       },
       "calendar":{

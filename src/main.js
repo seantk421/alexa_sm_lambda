@@ -43,13 +43,46 @@ module.exports.handler = (event, context, callback) => {
 
 var mainHandlers = {
 
+    'GetNews' : function(data){
+      var News = this.event.request.intent.slots.News.value;
+      var ssmlResponse = this.t('news');
+      var failResponse = this.t('fail');
+      var that = this;
+
+      requestHelper.sendMessage('api/news/'+News,function(success){
+        if(success){
+          //AttributesHelper.clearRepeat.call(this);
+          console.log(success)
+          that.emit(':tell', ssmlResponse.speechOutput + News + '.', ssmlResponse.reprompt);
+        } else{
+          that.emit(':tell', failResponse.speechOutput + News + '.', failResponse.reprompt);
+        }
+      })
+    },
+    'GetStock' : function(data){
+      var Stock = this.event.request.intent.slots.Stock.value;
+      var ssmlResponse = this.t('stock');
+      var failResponse = this.t('fail');
+      var that = this;
+
+      requestHelper.sendMessage('stock?quote=' + Stock,function(success){
+        if(success){
+          //AttributesHelper.clearRepeat.call(this);
+          console.log(success)
+          that.emit(':tell', ssmlResponse.speechOutput + '<say-as interpret-as="spell-out">'+Stock + '</say-as>.', ssmlResponse.reprompt);
+        } else{
+          that.emit(':tell', failResponse.speechOutput + Stock + '.', failResponse.reprompt);
+        }
+      })
+    },
     'GetCommute' : function(){
       var ssmlResponse = this.t('commute');
       var failResponse = this.t('fail');
       var that = this;
 
-      requestHelper.sendMessage('commute',function(success){
+      requestHelper.sendMessage('api/commute',function(success){
         if(success){
+          console.log(success)
           //AttributesHelper.clearRepeat.call(this);
           that.emit(':tell', ssmlResponse.speechOutput, ssmlResponse.reprompt);
         } else{
@@ -60,10 +93,13 @@ var mainHandlers = {
     'GetWeather' : function(){
       var ssmlResponse = this.t('weather');
       var failResponse = this.t('fail');
+      var city = this.event.request.intent.slots.City.value;
+      var state = this.event.request.intent.slots.State.value;
       var that = this;
 
-      requestHelper.sendMessage('weather',function(success){
+      requestHelper.sendMessage('api/weather?city='+city+'&state='+state,function(success){
         if(success){
+          console.log(success)
           //AttributesHelper.clearRepeat.call(this);
           that.emit(':tell', ssmlResponse.speechOutput, ssmlResponse.reprompt);
         } else{

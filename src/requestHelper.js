@@ -4,7 +4,7 @@ const util = require('./util');
 const Config = require('./config/skill.config');
 const request = require('request');
 
-const url = 'https://alexa-hack-sm.appspot.com';
+const url = 'https://alexa-hack-sm-vproohsuao.now.sh';
 
 
 module.exports = (function () {
@@ -21,7 +21,7 @@ module.exports = (function () {
           }
 
           if(body) {
-            callback(true);
+            callback(body);
           } else {
             callback(false);
           }

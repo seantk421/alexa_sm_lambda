@@ -4,7 +4,35 @@
       "intent": "GetCommute"
     },
     {
-      "intent": "GetWeather"
+      "intent": "GetNews",
+      "slots": [
+        {
+          "name": "News",
+          "type": "NEWS"
+        }
+      ]
+    },
+     {
+      "intent": "GetStock",
+      "slots": [
+        {
+          "name": "Stock",
+          "type": "STOCK"
+        }
+      ]
+    },
+    {
+      "intent": "GetWeather",
+      "slots": [
+        {
+          "name": "City",
+          "type": "CITY"
+        },
+        {
+          "name": "State",
+          "type": "STATE"
+        }
+      ]
     },
     {
       "intent": "GetCalendar"

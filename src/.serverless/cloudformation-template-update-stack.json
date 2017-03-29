@@ -18,7 +18,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/smart-mirror-service/dev/1489876412820-2017-03-18T22:33:32.820Z/smart-mirror-service.zip"
+          "S3Key": "serverless/smart-mirror-service/dev/1489912807187-2017-03-19T08:40:07.187Z/smart-mirror-service.zip"
         },
         "FunctionName": "smart-mirror-service-dev-skill",
         "Handler": "main.handler",
@@ -36,14 +36,14 @@
         "lambdaRole"
       ]
     },
-    "SkillLambdaVersion3eaxzWjKDGffrzvnsnCzod3F8q8l1BoRcNvYJLhUA": {
+    "SkillLambdaVersioned7yVyvS4S6wBnB4FPPe5wWH9KYBFMwmQogVvQGCY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SkillLambdaFunction"
         },
-        "CodeSha256": "3eaxzWjKDGffrzvnsnCz+od3F8q8l1BoRcNv/YJLhUA="
+        "CodeSha256": "ed7yVyvS4S6wBnB4F/PPe5wWH9KYBF/MwmQogVvQGCY="
       }
     },
     "SkillLambdaPermissionAlexaSkill": {
@@ -109,7 +109,7 @@
     "SkillLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SkillLambdaVersion3eaxzWjKDGffrzvnsnCzod3F8q8l1BoRcNvYJLhUA"
+        "Ref": "SkillLambdaVersioned7yVyvS4S6wBnB4FPPe5wWH9KYBFMwmQogVvQGCY"
       }
     }
   }
